@@ -1,0 +1,47 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: TASKER-GATEWAY-SERVER
+  cloud:
+    gateway:
+      discovery:
+         locator:
+          enabled: true
+      routes:
+        - id: TASKER-USER-SERVICE
+          uri:
+            lb://TASKER-USER-SERVICE
+          predicates:
+            - Path=/auth/**,/users/**,/api/users/**,/
+        - id: TASKER-TASK-MICROSERVICE
+          uri:
+            lb://TASKER-TASK-MICROSERVICE
+          predicates:
+            - Path=/api/tasks/**,/tasks/**
+        - id: TASKER-SUBMISSION-SERVICE
+          uri:
+            lb://TASKER-SUBMISSION-SERVICE
+          predicates:
+            - Path=/api/submissions/**,/submissions/**
+
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+

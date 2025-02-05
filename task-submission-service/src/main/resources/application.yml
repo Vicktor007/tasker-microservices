@@ -1,0 +1,26 @@
+server:
+  port: 5003
+
+spring:
+  application:
+    name: tasker-submission-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${url}
+    username: ${username}
+    password: ${password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
