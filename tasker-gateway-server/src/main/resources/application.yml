@@ -24,6 +24,10 @@ spring:
             lb://TASKER-SUBMISSION-SERVICE
           predicates:
             - Path=/api/submissions/**,/submissions/**
+        - id: swagger_route
+          uri: http://localhost:5000
+          predicates:
+            - Path=/swagger-ui.html, /swagger-ui/**, /v3/api-docs/**, /swagger-resources/**, /api-docs/**, /aggregate/**
 
 
       default-filters:
@@ -45,3 +49,21 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8070/eureka/
 
+
+springdoc:
+  api-docs:
+    path: "/api-docs"
+  swagger-ui:
+    path: "/swagger-ui.html"
+#  swagger-ui-config:
+#    urls:
+#      - url: /v3/api-docs
+#        name: API Docs
+#      - url: /swagger-ui
+#        name: Swagger UI
+#      - url: /swagger-resources
+#        name: Swagger Resources
+#      - url: /api-docs
+#        name: API Docs
+#      - url: /aggregate
+#        name: Aggregate Docs

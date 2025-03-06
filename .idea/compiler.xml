@@ -20,15 +20,15 @@
         </processorPath>
         <module name="tasker-task-microservice" />
       </profile>
-      <profile name="Annotation profile for tasker-user-service" enabled="true">
+      <profile name="Annotation profile for task-submission-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
-        <module name="tasker-user-service" />
         <module name="task-submission-service" />
+        <module name="tasker-user-service" />
         <module name="tasker-googleUpload-service" />
       </profile>
     </annotationProcessing>

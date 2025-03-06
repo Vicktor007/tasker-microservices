@@ -24,3 +24,10 @@ eureka:
     registerWithEureka: true
     serviceUrl:
       defaultZone: http://localhost:8070/eureka/
+
+springdoc:
+  api-docs:
+    path: "api-docs"
+  data:
+    swagger-ui:
+      path: "/swagger-ui.html"
